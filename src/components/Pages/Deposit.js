@@ -1,25 +1,40 @@
-import {Card, CardBody, CardTitle, CardSubtitle } 
-from 'reactstrap';
 
-function Deposit(){
+import {Card, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
 
-    return(
-        <Card  color="success">
+ function Deposit() {
+  
+  return (
+    <>
+    <div className="d-outside-card">
+      <Card color="success"  className="center-card"   style={{ width: "20rem" }}>
         <CardBody>
-        <CardTitle tag="h5">Deposit Amount</CardTitle>
-        <CardSubtitle>Account Balance $0</CardSubtitle>
-        <label className="label huge">
-        <input
-        type="number"
-        width="200"
-        placeholder="$ Enter Amount Here"
-      ></input>
-      <br/><br/>
-          <Button>button here</Button>
-      </label>
-        </CardBody>
-        </Card>
-            )
-        
-        }
+          <CardTitle className="d-white-text" tag="h4">Deposit Amount</CardTitle>
+          <hr className="line"></hr>
+          <CardSubtitle className="d-white-text" >Account Balance $0</CardSubtitle>
+          <br/>
+      
+
+       <input
+         type="number"
+         width="200"
+         /*onChange={onChange}*/
+         placeholder="$ Enter Deposit Amount Here"
+       ></input>
+       <br/> <br/>
+       <input
+         className="submit"
+         type="submit"
+         width="200"
+         value="Submit"
+       ></input>
+      
+  </CardBody>
+     </Card>
+     </div>
+      </>
+ 
+         )
+        };
+
+
 export default Deposit;

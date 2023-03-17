@@ -1,4 +1,61 @@
 
+import { useState } from "react";
+import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
+
+function Withdraw() {
+  const [withdrawalAmount, setWithdrawalAmount] = useState(0);
+  const [accountBalance, setAccountBalance] = useState(100); // initial balance of $100
+
+  const handleWithdrawal = (event) => {
+    event.preventDefault();
+    if (withdrawalAmount > accountBalance) {
+      alert("Insufficient funds!");
+    } else {
+      setAccountBalance(accountBalance - withdrawalAmount);
+      alert(`Withdrawal successful. New balance: $${accountBalance - withdrawalAmount}`);
+    }
+  };
+  console.log({withdrawalAmount}, {accountBalance});
+
+  return (
+    <>
+      <div className="outside-card">
+        <Card color="danger" className="center-card" style={{ maxWidth: "20rem" }}>
+          <CardBody>
+            <CardTitle className="w-white-text" tag="h4">
+              Withdraw Amount
+            </CardTitle>
+            <hr className="line"></hr>
+            <CardSubtitle className="w-white-text">
+              Account Balance ${accountBalance}
+            </CardSubtitle>
+            <br />
+
+            <form onSubmit={handleWithdrawal}>
+              <input
+                type="number"
+                width="200"
+                className="box"
+                value={withdrawalAmount}
+                onChange={(event) => setWithdrawalAmount(Number(event.target.value))}
+                placeholder="$ Enter Withdrawal Amount Here"
+              ></input>
+              <br /> <br />
+              <input className="submit" type="submit" width="200" value="Submit"></input>
+            </form>
+          </CardBody>
+        </Card>
+      </div>
+    </>
+  );
+}
+
+export default Withdraw;
+
+
+
+
+/*
 import {Card, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
 
  function Withdraw() {
@@ -18,6 +75,7 @@ import {Card, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
          type="number"
          width="200"
          /*onChange={onChange}*/
+         /*
          placeholder="$ Enter Withdrawal Amount Here"
        ></input>
        <br/> <br/>
@@ -37,7 +95,7 @@ import {Card, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
         };
 
 
-export default Withdraw;
+export default Withdraw;*/
 
 
 

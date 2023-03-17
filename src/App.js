@@ -6,6 +6,8 @@ import Login from './components/Pages/Login';
 import Deposit from './components/Pages/Deposit';
 import Withdraw from './components/Pages/Withdraw';
 import AllData from './components/Pages/AllData';
+import Alert from './partials/Alert';
+
 import { AuthProvider } from './components/contexts/authContext';
 import './App.css';
 
@@ -24,6 +26,7 @@ function App() {
         <Route path='/deposit' element={<Deposit/>}/>
         <Route path='/withdraw' element={<Withdraw/>}/>
         <Route path='/alldata' element={<AllData/>}/> 
+        <Route path='/alert' element={<Alert/>}/> 
       </Routes>
       </Router>  
       </AuthProvider>

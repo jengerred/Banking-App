@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useLocation} from 'react-router-dom';
+import { Card, CardBody, CardTitle, CardSubtitle, CardHeader, Button } from "reactstrap";
 
 function Login(){
     const navigate = useNavigate();
@@ -17,14 +18,20 @@ function Login(){
     }
 
     return (
+        <>
+        <Card className="center-card" style={{ width: "95vw" }}>
         <div style={{ textAlign: "center" }}>
-            <h1>Login</h1>
+        <CardHeader style={{ backgroundColor: "#0275d8" }}><h1 className="w-white-text">Login</h1></CardHeader>
+            <CardBody>
             <form onSubmit={login}>
                 <input className="login-space" placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)}></input>
                 <input className="login-space" placeholder='password' type='password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
                 <button className='btn btn-primary'>Login</button>
             </form>
+            </CardBody>
         </div>
+        </Card>
+        </>
     )
 }
 

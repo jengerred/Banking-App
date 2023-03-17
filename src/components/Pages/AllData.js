@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Context from '../../partials/Context';
 import {Card, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
@@ -14,6 +13,45 @@ import {Card, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
           <CardSubtitle>This is where all the saved data will be.</CardSubtitle>
          
           <Context></Context>
+      
+  </CardBody>
+     </Card>
+      </>
+ 
+         )
+        };
+
+
+export default AllData;
+
+
+
+
+
+
+
+
+
+/*import React from 'react';
+import Context from '../../partials/Context';
+import {Card, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
+import React from 'react';
+
+
+
+ function AllData() {
+
+
+  return (
+    <>
+      <Card color="light"  className="center-card"   style={{ width: "95%" }}>
+        <CardBody>
+          <CardTitle tag="h4">All Data</CardTitle>
+          <CardSubtitle>This is where all the saved data will be.</CardSubtitle>
+   
+          <Context>
+       
+          </Context>
       
   </CardBody>
      </Card>

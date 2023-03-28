@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 
 function Withdraw() {
-  const [withdrawalAmount, setWithdrawalAmount] = useState(0);
+  const [withdrawalAmount, setWithdrawalAmount] = useState();
   const [accountBalance, setAccountBalance] = useState(100); // initial balance of $100
 
   const handleWithdrawal = (event) => {

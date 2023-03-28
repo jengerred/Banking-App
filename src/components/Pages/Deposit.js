@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 
 function Deposit() {
-  const [depositAmount, setDepositAmount] = useState(0);
+  const [depositAmount, setDepositAmount] = useState();
   const [accountBalance, setAccountBalance] = useState(100); // initial balance of $100
 
   const handleDeposit = (event) => {

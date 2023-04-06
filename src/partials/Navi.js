@@ -3,8 +3,11 @@ import {Link, useNavigate} from 'react-router-dom';
 
 
 
+
 function Navi(){
     const navigate = useNavigate();
+
+  
 
     return (
         <Navbar color="light" light expand='md'>
@@ -19,10 +22,10 @@ function Navi(){
                             <NavLink  tag={Link} to='/login'>Login</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to='/deposit'>Deposit</NavLink>
+                            <NavLink tag={Link} to='/deposit' >Deposit</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to='/withdraw'>Withdraw</NavLink>
+                            <NavLink tag={Link} to='/withdraw' >Withdraw</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink tag={Link} to='/alldata'>AllData</NavLink>

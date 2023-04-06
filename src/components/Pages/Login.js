@@ -14,6 +14,17 @@ function Login(){
     const login = (e) => {
         e.preventDefault();
         console.log(username, password);
+        const localUsers = localStorage.getItem('user')
+        const jsonUser = JSON.parse(localUsers)
+        // check localStorage, 
+        if(jsonUser.email === username && jsonUser.password === password) {
+            alert(`Thanks for signing In!`);
+      
+            console.log(true)
+        }else {
+            alert(`Sorry that user does not exist`);
+            console.log(false)
+        }
         navigate(from);
     }
 

@@ -1,43 +1,46 @@
+import { useState } from "react";
+import { useNavigate, useLocation} from 'react-router-dom';
+import Table from 'react-bootstrap/Table';
 import React from 'react';
-import {Card, CardHeader, CardBody, CardTitle, }from 'reactstrap';
+import {UserContext, currentUserContext} from 'react';
+import {Card, CardBody, } from 'reactstrap';
 
-const UserContext = React.createContext(null);
-const currentUserContext = React.createContext({name: '', email: '', password: '', balance: 0, index: 0, loginStatus: false});
+
+
+
+
+
 
 function CardBootstrap(props) {
-    function classes() {
-        const bg = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
-        const txt = props.txtcolor ? ' text-' + props.txtcolor : ' text-white';
-        return 'card mb-3 ' + bg + txt;
-    }
-    
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    let { from } = location.state || { from: {pathname: '/'} }
+
+    const localUsers = localStorage.getItem('user')
+    const jsonUser = JSON.parse(localUsers)
+
+
+   
     return (
-        <Card className={classes()} style={{maxWidth: props.cardWidth}}>
-            <CardHeader className="card-header" style={{display: props.headerDisplay, justifyContent: props.headerJustifyContent, backgroundColor: props.headerBgColor, fontSize: props.fontSizeHeader + "em"}}>{props.header}</CardHeader>
-            <CardBody className="card-body" style={{textAlign: props.bodyContentAlign}}>
-                <div className='bodyContainer' style={props.bodyContainerWidth ? {display:'flex', width: props.bodyContainerWidth, position: 'relative', margin: "0 auto"}: {}}>
-                    {props.title && (<CardTitle className="card-title" style={{fontSize: props.titleFontSize + 'em', display: props.titleDisplay, justifyContent: props.titleJustify}}>{props.title}</CardTitle>)}
-                    <br/>
-                    {props.text && (<p className="card-text">{props.text}</p>)}
-                    {props.body && (<div style={{justifyContent: props.bodyContentAlign, textAlign: props.bodyAlign}}>{props.body}</div>)}
-                    <div style={{display: props.imgDisplay, justifyContent: props.imgJustify}}>
-                        {props.img && (<img src={props.img} alt="" className={props.imgClass}></img>)}
-                    </div>
-                </div>
-                    {props.status && (<div id='createStatus'>{props.status}</div>)}
+        <Card>
+          
+            <CardBody className="card-body">
+            
+            <Table striped bordered hover>
+   
+      <tbody>
+        <tr>
+          
+          <td>{localUsers}</td>
+       
+        </tr>
+        </tbody>
+    </Table>
             </CardBody>
         </Card>
     );
-    /*
-    <>
-   <Card color="light"  className="center-card"   style={{ width: "95%" }}>
-        <CardBody>
-          <CardTitle tag="h4">All Data</CardTitle>
-          <CardSubtitle>This is where all the saved data will be.</CardSubtitle>
-          
-          </CardBody>
-     </Card>
-      </>*/
 }
 const contextExports = {
     CardBootstrap,
@@ -45,3 +48,15 @@ const contextExports = {
     currentUserContext
 }
 export default CardBootstrap;
+
+
+
+
+                   /* <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Account Type</th>
+                    <th>Account Balance</th>
+                  </tr>
+                  */

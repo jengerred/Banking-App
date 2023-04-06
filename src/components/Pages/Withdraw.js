@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 
 function Withdraw() {
-  const [withdrawalAmount, setWithdrawalAmount] = useState();
-  const [accountBalance, setAccountBalance] = useState(100); // initial balance of $100
+  const [withdrawalAmount, setWithdrawalAmount] = useState('');
+  const [accountBalance, setAccountBalance] = useState(0); // initial balance of $0
 
   const handleWithdrawal = (event) => {
     event.preventDefault();
@@ -16,6 +16,8 @@ function Withdraw() {
     }
   };
   console.log({withdrawalAmount}, {accountBalance});
+  const localUsers = localStorage.getItem('balance')
+const jsonUser = JSON.parse(localUsers)
 
   return (
     <>

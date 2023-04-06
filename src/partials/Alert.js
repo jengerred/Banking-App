@@ -1,4 +1,4 @@
-import {Card, CardBody, CardText, CardHeader, CardSubtitle, Button, CardImg, CardTitle } 
+import {Card, CardBody, CardHeader, Button, CardTitle } 
 from 'reactstrap';
 
 function Alert(){

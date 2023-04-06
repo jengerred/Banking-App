@@ -8,6 +8,7 @@ import React from 'react';
 
 
 
+
 export default function CreateAccount(){
 const navigate = useNavigate();
 const location = useLocation();
@@ -26,16 +27,17 @@ e.preventDefault();
 navigate(from)
 }
 
-
-/*console.log(username, email, password, type);*/
+console.log(username, email, password, type);
 
 
 const user = {
-    name: username,
-    email: email,
-    password: password,
-    type: type
+    name : username,
+   email : email,
+    password : password,
+    type : type
 }
+
+
 
 function clearForm(){
     setUsername('');
@@ -90,7 +92,7 @@ else{
                 <Col>
                      <CardSubtitle>
                         <label className="top">Email: 
-                        <input className="name" placeholder='email' type='email'  value={email} onChange={(e) => setEmail(e.currentTarget.value)}></input>
+                        <input className="name" placeholder='email' type='email'  value={email} onChange={(e) => setEmail(e.target.value)}></input>
                         <CardText className="width">We'll never share your email with anyone else.</CardText>
                         </label> 
                     </CardSubtitle>
@@ -99,7 +101,7 @@ else{
                 <Col>
                     <CardSubtitle>
                         <label className="top">Password: 
-                        <input className="name" placeholder='password' type='password'  value={password} onChange={(e) => setPassword(e.currentTarget.value)}></input>
+                        <input className="name" placeholder='password' type='password'  value={password} onChange={(e) => setPassword(e.target.value)}></input>
                         <CardText className="width">Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</CardText>
                         </label>
                     </CardSubtitle>
@@ -116,7 +118,7 @@ else{
             <Row className="check" style={{ margin: "auto" }}>
                 <Col>
                     <div className="form-check">
-                        <input className="form-check-input" type="checkbox" id="checking" value="Checking Account" onClick={disableSave} onChange={e => setType(e.currentTarget.value)}/>
+                        <input className="form-check-input" type="checkbox" id="checking" value="Checking Account" onClick={disableSave} onChange={e => setType(e.target.value)}/>
                         <label className="form-check-label">
                         Checking
                         </label>
@@ -124,7 +126,7 @@ else{
                  </Col>
                  <Col>
                     <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="Savings Account" id="savings" onClick={disableCheck} onChange={e => setType(e.currentTarget.value)} />
+                        <input className="form-check-input" type="checkbox" value="Savings Account" id="savings" onClick={disableCheck} onChange={e => setType(e.target.value)} />
                         <label className="form-check-label">
                         Savings
                         </label>
@@ -149,7 +151,3 @@ else{
 
 }
   
-
-
-
-/*           <p className="width">Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</p>*/

@@ -9,12 +9,22 @@ import {UserContext, currentUserContext} from 'react';
 
 function Deposit() {
   const [depositAmount, setDepositAmount] = useState('');
-  const [accountBalance, setAccountBalance] = useState(0); // initial balance of $100
+  const [accountBalance, setAccountBalance] = useState(0); // initial balance of $0
 
 
   const balance = {
-    accountBalance : accountBalance
+accountBalance
   }
+console.log(balance)
+
+window.localStorage.setItem('balance', JSON.stringify(balance))
+
+const deposit = {
+  depositAmount : depositAmount
+}
+
+
+window.localStorage.setItem('deposit', JSON.stringify(deposit))
 
   const handleDeposit = (event) => {
     event.preventDefault();
@@ -24,19 +34,20 @@ function Deposit() {
 
 console.log({depositAmount}, {accountBalance} );
 
-
+const localBalances = localStorage.getItem('balance')
+const jsonBalance = JSON.parse(localBalances)
 
   return (
     <>
       <Container className="d-outside-card">
-        <Card color="success" className="center-card" style={{ maxWidth: "20rem" }}>
+        <Card color="success" className="center-card" style={{ maxWidth: "20rem"}}>
           <CardBody>
             <CardTitle className="d-white-text" tag="h4">
               Deposit Amount
             </CardTitle>
             <hr className="line"></hr>
             <CardSubtitle className="d-white-text">
-              Account Balance ${accountBalance}
+              Account Balance: ${accountBalance}
             </CardSubtitle>
             <br />
 

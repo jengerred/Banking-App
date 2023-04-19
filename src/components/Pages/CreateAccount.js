@@ -9,6 +9,7 @@ import React from 'react';
 
 
 
+
 export default function CreateAccount(){
 const navigate = useNavigate();
 const location = useLocation();
@@ -27,15 +28,6 @@ e.preventDefault();
 navigate(from)
 }
 
-console.log(username, email, password, type);
-
-
-const user = {
-    name : username,
-   email : email,
-    password : password,
-    type : type
-}
 
 
 
@@ -45,10 +37,15 @@ function clearForm(){
     setPassword('');
     setType('');
   }
+  const user = username;
+  const mail = email;
+  const pass = password;
+  const accountType = type;
 
-
-console.log(user)
-window.localStorage.setItem('user', JSON.stringify(user))
+window.localStorage.setItem('email', JSON.stringify(mail))
+window.localStorage.setItem('password', JSON.stringify(pass))
+window.localStorage.setItem('username', JSON.stringify(user))
+window.localStorage.setItem('type', JSON.stringify(accountType))
 
 const checking = document.getElementById("checking");
 const savings = document.getElementById("savings");
@@ -151,3 +148,25 @@ else{
 
 }
   
+/*import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
+
+
+
+const user = {
+  username
+}
+const mail = {
+     email
+}
+const pass = {
+     password
+}
+const accountType = {
+accountType: type
+}
+console.log (user, mail, pass, accountType);
+*/

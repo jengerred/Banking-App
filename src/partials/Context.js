@@ -18,8 +18,25 @@ function CardBootstrap(props) {
 
     let { from } = location.state || { from: {pathname: '/'} }
 
-    const localUsers = localStorage.getItem('user')
+    // user data
+    const localUsers = localStorage.getItem('username')
     const jsonUser = JSON.parse(localUsers)
+
+    const localMails = localStorage.getItem('email')
+    const jsonMail = JSON.parse(localMails)
+
+    const localPasses = localStorage.getItem('password')
+    const jsonPass = JSON.parse(localPasses)
+
+    const localAccountTypes = localStorage.getItem('type')
+    const jsonAccountType = JSON.parse(localAccountTypes)
+
+
+
+    // user balance
+const localBalances = localStorage.getItem('balance')
+const jsonBalance = JSON.parse(localBalances)
+
 
 
    
@@ -33,7 +50,12 @@ function CardBootstrap(props) {
       <tbody>
         <tr>
           
-          <td>{localUsers}</td>
+          <td>Username: {localUsers}</td>
+          <td>Email: {localMails}</td>
+          <td>Password: {localPasses}</td>
+          <td>Account type: {localAccountTypes}</td>
+          <td>Balance: {localBalances}</td>
+        
        
         </tr>
         </tbody>

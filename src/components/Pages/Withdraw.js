@@ -3,8 +3,11 @@ import { useState } from "react";
 import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 
 function Withdraw() {
+  const localBalances = localStorage.getItem('balance')
+  const jsonBalance = JSON.parse(localBalances)
+
   const [withdrawalAmount, setWithdrawalAmount] = useState('');
-  const [accountBalance, setAccountBalance] = useState(0); // initial balance of $0
+  const [accountBalance, setAccountBalance] = useState(''); // initial balance of $0
 
   const handleWithdrawal = (event) => {
     event.preventDefault();
@@ -15,9 +18,7 @@ function Withdraw() {
       alert(`Withdrawal successful. New balance: $${accountBalance - withdrawalAmount}`);
     }
   };
-  console.log({withdrawalAmount}, {accountBalance});
-  const localUsers = localStorage.getItem('balance')
-const jsonUser = JSON.parse(localUsers)
+  console.log({withdrawalAmount}, {localBalances});
 
   return (
     <>
@@ -29,7 +30,7 @@ const jsonUser = JSON.parse(localUsers)
             </CardTitle>
             <hr className="line"></hr>
             <CardSubtitle className="w-white-text">
-              Account Balance ${accountBalance}
+              Account Balance ${localBalances}
             </CardSubtitle>
             <br />
 

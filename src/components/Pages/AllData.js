@@ -11,7 +11,7 @@ import {Card, CardBody, CardTitle, CardSubtitle,} from 'reactstrap';
            <CardTitle tag="h4">All Data</CardTitle>
            <CardSubtitle>This is where all the saved data will be.</CardSubtitle>
     <Context>
-      
+
     </Context>
            </CardBody>
       </Card>

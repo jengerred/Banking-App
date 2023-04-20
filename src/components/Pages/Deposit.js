@@ -11,20 +11,17 @@ function Deposit() {
   const [depositAmount, setDepositAmount] = useState('');
   const [accountBalance, setAccountBalance] = useState(0); // initial balance of $0
 
-
-  const balance = {
-accountBalance
-  }
+ 
+  const balance = (accountBalance);
+ 
 console.log(balance)
 
 window.localStorage.setItem('balance', JSON.stringify(balance))
 
-const deposit = {
-  depositAmount : depositAmount
-}
 
+const localBalances = localStorage.getItem('balance')
+const jsonBalance = JSON.parse(localBalances)
 
-window.localStorage.setItem('deposit', JSON.stringify(deposit))
 
   const handleDeposit = (event) => {
     event.preventDefault();
@@ -34,8 +31,7 @@ window.localStorage.setItem('deposit', JSON.stringify(deposit))
 
 console.log({depositAmount}, {accountBalance} );
 
-const localBalances = localStorage.getItem('balance')
-const jsonBalance = JSON.parse(localBalances)
+
 
   return (
     <>
@@ -47,7 +43,7 @@ const jsonBalance = JSON.parse(localBalances)
             </CardTitle>
             <hr className="line"></hr>
             <CardSubtitle className="d-white-text">
-              Account Balance: ${accountBalance}
+              Account Balance: ${localBalances}
             </CardSubtitle>
             <br />
 

@@ -37,7 +37,14 @@ function CardBootstrap(props) {
 const localBalances = localStorage.getItem('balance')
 const jsonBalance = JSON.parse(localBalances)
 
+const localStatuses = localStorage.getItem('status')
+const jsonStatus = JSON.parse(localStatuses)
 
+
+
+
+const localAccountBalances = localStorage.getItem('accountBalance')
+const jsonAccountBalance = JSON.parse(localAccountBalances)
 
    
     return (
@@ -54,7 +61,8 @@ const jsonBalance = JSON.parse(localBalances)
           <td>Email: {localMails}</td>
           <td>Password: {localPasses}</td>
           <td>Account type: {localAccountTypes}</td>
-          <td>Balance: {localBalances}</td>
+          <td>Total Deposits: ${localBalances}</td>
+          <td>Balance: ${localStatuses}</td>
         
        
         </tr>

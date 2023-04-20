@@ -2,20 +2,29 @@
 import { useState } from "react";
 import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 
-function Withdraw() {
+function Withdraw(){
   const localBalances = localStorage.getItem('balance')
   const jsonBalance = JSON.parse(localBalances)
 
   const [withdrawalAmount, setWithdrawalAmount] = useState('');
   const [accountBalance, setAccountBalance] = useState(''); // initial balance of $0
 
+  const status = (localBalances - withdrawalAmount)
+
+
+  window.localStorage.setItem('status', JSON.stringify(status))
+
+  window.localStorage.setItem('accountBalance', JSON.stringify(accountBalance))
+
+
+
   const handleWithdrawal = (event) => {
     event.preventDefault();
-    if (withdrawalAmount > accountBalance) {
+    if (withdrawalAmount > localBalances) {
       alert("Insufficient funds!");
     } else {
       setAccountBalance(accountBalance - withdrawalAmount);
-      alert(`Withdrawal successful. New balance: $${accountBalance - withdrawalAmount}`);
+      alert(`Withdrawal successful. New balance: $${localBalances - withdrawalAmount}`);
     }
   };
   console.log({withdrawalAmount}, {localBalances});
@@ -30,7 +39,7 @@ function Withdraw() {
             </CardTitle>
             <hr className="line"></hr>
             <CardSubtitle className="w-white-text">
-              Account Balance ${localBalances}
+              Account Balance ${status}
             </CardSubtitle>
             <br />
 

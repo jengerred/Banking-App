@@ -37,15 +37,25 @@ function clearForm(){
     setPassword('');
     setType('');
   }
+  
+  
   const user = username;
   const mail = email;
   const pass = password;
   const accountType = type;
+  
 
 window.localStorage.setItem('email', JSON.stringify(mail))
 window.localStorage.setItem('password', JSON.stringify(pass))
-window.localStorage.setItem('username', JSON.stringify(user))
+window.localStorage.setItem('username',  JSON.stringify(user))
 window.localStorage.setItem('type', JSON.stringify(accountType))
+
+
+
+
+const localUsers = localStorage.getItem('user')
+const jsonUser = JSON.parse(localUsers)
+
 
 const checking = document.getElementById("checking");
 const savings = document.getElementById("savings");
